@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import { Consumer } from "../Context/Context";
 
-export default class SearchBar extends Component {
-  render() {
-    return (
-      <form className="search-form">
-        <input type="search" name="search" placeholder="Search" required />
+const SearchBar = () => (
+  <Consumer>
+    {({ actions }) => (
+      <form className="search-form" onSubmit={(event) => actions.searchTag(event)}>
+        <input type="search" name="search" placeholder="Search" onChange={(event) => actions.searchChange(event)} required />
         <button type="submit" className="search-button">
           <svg
             fill="#fff"
@@ -18,6 +19,8 @@ export default class SearchBar extends Component {
           </svg>
         </button>
       </form>
-    );
-  }
-}
+    )}
+  </Consumer>
+);
+
+export default SearchBar;
