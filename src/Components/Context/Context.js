@@ -69,12 +69,12 @@ export class Provider extends Component {
   };
 
   handleSearchSubmit = event => {
-    event.preventDefault();
-    console.log("these are the props: ", this.props.history);
+    // event.preventDefault();
     this.setState({
       photos: this.fetchTagImagesData(this.state.searchString),
       formSubmitted: true,
-      fetchingPics: true
+      fetchingPics: true,
+      onSearchRoute: true
     });
   };
 
@@ -95,6 +95,7 @@ export class Provider extends Component {
           currentTag: this.state.currentTag,
           search: this.state.searchString,
           formSubmitted: this.state.formSubmitted,
+          searchState: this.state.searchState,
           actions: {
             updateSelectedTag: this.handleNavLinkClick,
             searchTag: this.handleSearchSubmit,
