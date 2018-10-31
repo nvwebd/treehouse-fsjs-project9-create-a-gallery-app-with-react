@@ -69,12 +69,12 @@ export class Provider extends Component {
   };
 
   handleSearchSubmit = event => {
-    // event.preventDefault();
     this.setState({
       photos: this.fetchTagImagesData(this.state.searchString),
       formSubmitted: true,
       fetchingPics: true,
-      onSearchRoute: true
+      onSearchRoute: true,
+      currentTag: this.state.searchString
     });
   };
 
