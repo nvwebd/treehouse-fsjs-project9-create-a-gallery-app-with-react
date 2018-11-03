@@ -14,9 +14,9 @@ const Gallery = () => {
               <Loader />
             ) : (
               <div className="photo-container">
-                {photos && <h2>{currentTag}</h2>}
+                {photos.length > 0 && <h2>{currentTag}</h2>}
                 <ul>
-                  {photos ? (
+                  {photos.length > 0 ? (
                     <>
                       {photos.map((photo, index) => (
                         <GalleryItem
